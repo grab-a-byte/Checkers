@@ -1,0 +1,9 @@
+#pragma once
+
+const int SCREENWIDTH =800;
+const int SCREENHEIGHT=800;
+static int PLAYERTURN = 1;
+
+enum {BLACKSQUARE, WHITESQUARE};
+enum {BLUEPIECE, REDPIECE};
+enum {NORMALPIECE = 54321, QUEENPIECE };

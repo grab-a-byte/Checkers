@@ -1,0 +1,85 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on July, 29  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.5: Mix_VolumeChunk</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.5: Mix_VolumeChunk">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.5: Mix_VolumeChunk">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC19"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_18.html#SEC18"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_20.html#SEC20"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_20.html#SEC20"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_14.html#SEC14"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_21.html#SEC21"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_87.html#SEC87">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.2.5 Mix_VolumeChunk </H3>
+<!--docid::SEC19::-->
+<P>
+
+<CODE>int <B>Mix_VolumeChunk</B>(Mix_Chunk *<VAR>chunk</VAR>, int <VAR>volume</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>chunk</VAR>
+<DD>Pointer to the Mix_Chunk to set the volume in.
+<DT><VAR>volume</VAR>
+<DD>The volume to use from 0 to <B>MIX_MAX_VOLUME</B>(128).<BR>
+If greater than <B>MIX_MAX_VOLUME</B>,<BR> then it will be set to <B>MIX_MAX_VOLUME</B>.<BR>
+If less than 0 then <VAR>chunk</VAR>-&#62;volume will not be set.
+</DL>
+<P>
+
+Set <VAR>chunk</VAR>-&#62;volume to <VAR>volume</VAR>.<BR>
+The volume setting will take effect when the chunk is used on a channel, being mixed into the output.
+</P><P>
+
+<B>Returns</B>: previous <VAR>chunk</VAR>-&#62;volume setting.  if you passed a negative value for <VAR>volume</VAR> then this volume is still the current volume for the <VAR>chunk</VAR>.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// set the sample's volume to 1/2
+// Mix_Chunk *sample;
+int previous_volume;
+previous_volume=Mix_VolumeChunk(sample, MIX_MAX_VOLUME/2);
+printf("previous_volume: %d\n", previous_volume);
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_79.html#SEC79">5.1 Mix_Chunk</A>
+</P><P>
+
+<A NAME="Mix_FreeChunk"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>July, 29  2005</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

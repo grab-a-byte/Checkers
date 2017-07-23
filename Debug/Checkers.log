@@ -1,0 +1,7 @@
+﻿  SelectionManger.cpp
+f:\gsd year 2\games software development\checkers\include\square.hpp(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+f:\gsd year 2\games software development\checkers\src\selectionmanger.cpp(66): warning C4553: '==': operator has no effect; did you intend '='?
+f:\gsd year 2\games software development\checkers\src\selectionmanger.cpp(88): warning C4390: ';': empty controlled statement found; is this the intent?
+f:\gsd year 2\games software development\checkers\src\selectionmanger.cpp(98): warning C4390: ';': empty controlled statement found; is this the intent?
+f:\gsd year 2\games software development\checkers\src\selectionmanger.cpp(110): warning C4390: ';': empty controlled statement found; is this the intent?
+  Checkers.vcxproj -> F:\GsD Year 2\Games Software Development\Checkers\Debug\Checkers.exe

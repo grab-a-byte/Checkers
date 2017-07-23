@@ -1,0 +1,86 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 12  2003 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_image 1.2.3: IMG_Load_RW</TITLE>
+
+<META NAME="description" CONTENT="SDL_image 1.2.3: IMG_Load_RW">
+<META NAME="keywords" CONTENT="SDL_image 1.2.3: IMG_Load_RW">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC8"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_7.html#SEC7"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_9.html#SEC9"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_9.html#SEC9"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_6.html#SEC6"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_22.html#SEC22"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_36.html#SEC36">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_image_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.1.2 IMG_Load_RW </H3>
+<!--docid::SEC8::-->
+<P>
+
+<CODE>SDL_Surface *<B>IMG_Load_RW</B>(SDL_RWops *<VAR>src</VAR>, int <VAR>freesrc</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>src</VAR>
+<DD>The source SDL_RWops as a pointer.  The image is loaded from this.
+<DT><VAR>freesrc</VAR>
+<DD>A non-zero value mean is will automatically close/free the <VAR>src</VAR> for you.
+</DL>
+<P>
+
+Load <VAR>src</VAR> for use as a surface.  This can load all supported image formats, <B>except TGA</B>.
+Using <CODE>SDL_RWops</CODE> is not covered here, but they enable you to load from almost any source.
+</P><P>
+
+<B>Returns</B>: a pointer to the image as a new <CODE>SDL_Surface</CODE>.  <B>NULL</B> is returned on errors.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// load sample.png in to image
+SDL_Surface *image;
+image=IMG_Load_RW(SDL_RWFromFile("sample.png", "rb"), 1);
+if(!image) {
+    printf("IMG_Load_RW: %s\n", IMG_GetError());
+    // handle error
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_image_7.html#SEC7">3.1.1 IMG_Load</A>,
+<A HREF="SDL_image_9.html#SEC9">3.1.3 IMG_LoadTyped_RW</A>
+</P><P>
+
+<A NAME="IMG_LoadTyped_RW"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>June, 12  2003</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

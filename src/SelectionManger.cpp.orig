@@ -1,0 +1,59 @@
+#include "SelectionManger.hpp"
+
+using namespace std;
+
+SelectionManager::SelectionManager()
+{
+	selectedSquare = nullptr;
+	selectedPiece = nullptr;
+}
+
+SelectionManager::~SelectionManager()
+{
+	delete selectedSquare;
+	selectedSquare = nullptr;
+}
+
+
+//changes selected piece
+
+bool SelectionManager::changeSelection(Square* newSelection)
+{
+
+	if (selectedSquare == nullptr)
+	{
+		
+	}
+
+	else
+	{
+		if (selectedSquare->getHasPiece() == true)
+		{
+			moveSelectedPiece(newSelection);
+		}
+
+		selectedSquare->setSelected(false);
+		selectedSquare = nullptr;
+
+		
+	}	
+
+	if (selectedSquare != newSelection)
+	{
+		selectedSquare = newSelection;
+		selectedSquare->setSelected(true);
+
+		selectedPiece = selectedSquare->getPiece();
+	}
+
+
+	return selectedSquare->getHasPiece();
+
+}
+
+void SelectionManager::moveSelectedPiece(Square* newSquare)
+{
+	newSquare->setPiece(selectedPiece);
+	newSquare->setHasPiece(true);
+	selectedSquare->setPiece(nullptr);
+}

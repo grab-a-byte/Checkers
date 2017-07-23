@@ -1,0 +1,7 @@
+#pragma once
+
+const int SCREENWIDTH =800;
+const int SCREENHEIGHT=800;
+
+enum {REDPIECE, BLUEPIECE};
+enum {BLACKBOARDSPACE, WHITEBOARDSPACE};

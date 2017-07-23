@@ -1,0 +1,48 @@
+#pragma once
+#ifndef _SQUARE_
+#define _SQUARE_
+
+#include "GameConsts.hpp"
+#include "SDL_image.h"
+#include "LWindow.hpp"
+#include "CheckerPiece.hpp";
+
+class Square
+{
+public:
+	Square();
+	~Square();
+	void setColour(int colour);
+	void setRenderX(int renderX);
+	void setRenderY(int renderY);
+	inline void setHasPiece(bool selection) { hasPiece = selection; }
+	inline void setXLoc(int xLoc) { this->xLoc = xLoc; }
+	inline void setYLoc(int yLoc) { this->yLoc = yLoc; }
+	inline void setPiece(CheckerPiece* piece) { this->heldPiece = piece; }
+	inline void setSelected(bool selected) { this->selected = selected; }
+
+	inline int getRenderX() { return renderX; }
+	inline int getRenderY() { return renderY; }
+	inline bool getHasPiece() { return hasPiece; }
+	inline int getYLoc() { return yLoc; }
+	inline int getXLoc() { return xLoc; }
+	inline CheckerPiece* getPiece() { return heldPiece; }
+	inline bool getSelected() { return selected; }
+
+	void render();
+
+private:
+	int colour;
+	int renderX;
+	int renderY;
+	int ID;
+	static int nextID;
+	bool hasPiece;
+	int xLoc;
+	int yLoc;
+	bool selected;
+
+	CheckerPiece* heldPiece;
+};
+
+#endif //!_SQUARE_

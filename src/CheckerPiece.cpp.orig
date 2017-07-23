@@ -1,0 +1,47 @@
+#include "CheckerPiece.hpp"
+#include <iostream>
+
+
+using namespace std;
+CheckerPiece::CheckerPiece()
+{
+
+}
+
+CheckerPiece::CheckerPiece(int colour) :
+	colour(colour)
+{
+
+}
+
+CheckerPiece::~CheckerPiece()
+{
+
+}
+
+void CheckerPiece::render(int posX, int posY)
+{
+	SDL_Rect pieceRect = { posX + SCREENWIDTH / 32 , posY + SCREENHEIGHT / 32, SCREENWIDTH / 16, SCREENHEIGHT / 16 };
+
+	if (colour == REDPIECE)
+	{
+		SDL_SetRenderDrawColor(LWindow::obtainInstance()->getRenderer(), 0xFF, 0x00, 0x00, 0xFF);
+	}
+	else if (colour == BLUEPIECE)
+	{
+		SDL_SetRenderDrawColor(LWindow::obtainInstance()->getRenderer(), 0x00, 0x00, 0xFF, 0xFF);
+
+	}
+
+	else
+	{
+		cout << "error in piece render";
+	}
+	
+	SDL_RenderFillRect(LWindow::obtainInstance()->getRenderer(), &pieceRect);
+}
+
+void CheckerPiece::checkMove()
+{
+
+}

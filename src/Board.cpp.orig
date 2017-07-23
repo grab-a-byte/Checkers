@@ -1,0 +1,111 @@
+#include "Board.hpp"
+#include <iostream>
+
+using namespace std;
+
+void Board::render() 
+{
+	for (int i = 0; i < 64; i++)
+	{
+		board[i]->render();
+		cout << i <<endl;
+	}
+}
+
+Board::Board()
+{
+
+	bool done = false;
+	int colour = 0;
+	int renderX = 0;
+	int renderY = 0;
+	int row = 0;
+
+	for (int i = 0; i < 64; i++)
+	{
+		
+		//create rows
+		for (int c = 0; c < 8; c++)
+		{
+			renderY = (SCREENHEIGHT / 8) * row;
+			//switching colour to alternate rows
+			if (colour == 1)
+			{
+				colour = 0;
+			}
+			else colour = 1;
+
+			//create columns
+			for (int z = 0; z < 8; z++)
+			{
+
+				renderX = (SCREENWIDTH / 8) * z;
+
+				board[i] = new Square();
+
+				board[i]->setXLoc(z + 1);
+				board[i]->setYLoc(c + 1);
+
+				board[i]->setColour(colour);
+				board[i]->setRenderX(renderX);
+				board[i]->setRenderY(renderY);
+
+
+				if (colour == WHITEBOARDSPACE)
+				{
+					colour = BLACKBOARDSPACE;
+				}
+				else { colour = WHITEBOARDSPACE; }
+
+
+				//initialising pieces for start of game
+				if (colour == WHITEBOARDSPACE)
+				{
+
+					//ensuring only 2 rows each side
+					if (c == 0 || c == 1 || c == 6 || c == 7)
+					{
+						int pieceColour = 0;
+						if (i < 32) { pieceColour = REDPIECE; }
+						else { pieceColour = BLUEPIECE; }
+
+						board[i]->setPiece(new CheckerPiece(pieceColour));
+						board[i]->setHasPiece(true);
+					}
+				}
+
+
+				i++;
+			}
+			row++;
+		}
+	}
+}
+
+Board::~Board()
+{
+	for (int i = 0; i < 64; i++)
+	{
+		delete board[i];
+		board[i] = nullptr;
+	}
+}
+
+Square* Board::getSquare()
+{
+	int mousePosX, mousePosY;
+	SDL_GetMouseState(&mousePosX, &mousePosY);
+
+	Square* returnedSquare = nullptr;
+	for (int c = 0; c<64; c++)
+
+	if (mousePosX > board[c]->getRenderX() && mousePosX < board[c]->getRenderX() + (SCREENWIDTH/8))
+	{
+		if (mousePosY > board[c]->getRenderY() && mousePosY < board[c]->getRenderY() + (SCREENHEIGHT / 8))
+		{
+			returnedSquare = board[c];
+		}
+	}
+
+	return returnedSquare;
+}

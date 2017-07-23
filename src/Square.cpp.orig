@@ -1,0 +1,78 @@
+#include "LWindow.hpp"
+#include"Square.hpp"
+#include "SDL_gfxPrimitives.h"
+#include<iostream>
+
+using namespace std;
+
+int Square::nextID = 12345;
+
+Square::Square():
+	ID(nextID)
+{
+	nextID++;
+}
+
+Square::~Square()
+{
+}
+
+
+void Square::setColour(int colour)
+{
+	this->colour = colour;
+}
+
+void Square::setRenderX(int renderX)
+{
+	this->renderX = renderX;
+}
+
+void Square::setRenderY(int renderY)
+{
+	this->renderY = renderY;
+}
+
+void Square::render()
+{
+	//sanity check
+	if (this == nullptr)
+	{
+		cout << "Render error on square";
+	}
+
+	//render square based on colour
+	else {
+
+		SDL_Rect squareRect = { this->renderX, this->renderY, SCREENWIDTH / 8, SCREENHEIGHT / 8 };
+		if (colour == WHITEBOARDSPACE)
+		{
+			SDL_SetRenderDrawColor(LWindow::obtainInstance()->getRenderer(), 0x00, 0x00, 0x00, 0xFF);
+		}
+		else if (colour == BLACKBOARDSPACE)
+		{
+			SDL_SetRenderDrawColor(LWindow::obtainInstance()->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
+		}
+
+		if (selected == true)
+		{
+			SDL_SetRenderDrawColor(LWindow::obtainInstance()->getRenderer(), 0xFF, 0x00, 0xFF, 0xFF);
+		}
+
+		SDL_RenderFillRect(LWindow::obtainInstance()->getRenderer(), &squareRect);
+
+		//testing selection
+		if (hasPiece == true)
+		{
+
+			heldPiece->render(this->renderX , this->renderY);
+
+			//SDL_Rect pieceRect = { this->renderX + SCREENWIDTH / 32 , this->renderY + SCREENHEIGHT / 32, SCREENWIDTH / 16, SCREENHEIGHT / 16 };
+
+			//SDL_SetRenderDrawColor(LWindow::obtainInstance()->getRenderer(), 0xFF, 0x00, 0xFF, 0xFF);
+			//SDL_RenderFillRect(LWindow::obtainInstance()->getRenderer(), &pieceRect);
+
+		}
+
+	}
+}

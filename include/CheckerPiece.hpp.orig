@@ -1,0 +1,29 @@
+#pragma once
+#ifndef _CHECKERPIECE_
+#define _CHECKERPIECE_
+
+#include "SDL_image.h"
+#include "GameConsts.hpp"
+#include "LWindow.hpp"
+
+class CheckerPiece
+{
+public:
+	CheckerPiece();
+	CheckerPiece(int colour);
+	~CheckerPiece();
+
+	void render(int posX, int posY);
+	void checkMove();
+
+
+protected:
+
+private:
+	int colour;
+	int posx;
+	int posy;
+
+};
+
+#endif
